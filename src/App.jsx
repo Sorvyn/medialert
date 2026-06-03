@@ -121,7 +121,7 @@ Simple English, no jargon. Max 300 words.`
 3. ⚠️ WARNING SIGNS (when to see doctor)
 4. ✅ DO'S AND DON'TS
 Remind: general guidance only. Max 300 words.`;
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
+      const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -142,7 +142,7 @@ Remind: general guidance only. Max 300 words.`;
     setSymptomLoading(true); setSymptomResult("");
     try {
       const prompt = `Patient symptoms: ${allSymptoms.join(", ")}. ${symptomAge ? `Age: ${symptomAge}.` : ""} ${symptomDuration ? `Duration: ${symptomDuration}.` : ""}`;
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
+      const res = await fetch("", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -174,7 +174,7 @@ IMPORTANT: Always end with "This is NOT a diagnosis. Please consult a doctor for
     if (!hospitalLocation.trim()) return;
     setHospitalLoading(true); setHospitals([]);
     try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
+      const res = await fetch("", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
