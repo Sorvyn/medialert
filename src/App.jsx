@@ -142,7 +142,7 @@ Remind: general guidance only. Max 300 words.`;
     setSymptomLoading(true); setSymptomResult("");
     try {
       const prompt = `Patient symptoms: ${allSymptoms.join(", ")}. ${symptomAge ? `Age: ${symptomAge}.` : ""} ${symptomDuration ? `Duration: ${symptomDuration}.` : ""}`;
-      const res = await fetch("", {
+      const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -174,7 +174,7 @@ IMPORTANT: Always end with "This is NOT a diagnosis. Please consult a doctor for
     if (!hospitalLocation.trim()) return;
     setHospitalLoading(true); setHospitals([]);
     try {
-      const res = await fetch("", {
+      const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
